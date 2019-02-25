@@ -1,0 +1,104 @@
+.box {
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  margin-top: 0;
+  float: left;
+  font-size: 1px;
+  font-family: sans-serif;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: gray;
+  background: #FFFFFF;
+  z-index: 2;
+}
+
+.block {
+  width: 40px;
+  height: 40px;
+  float: left;
+  outline-style: solid;
+  outline-width: 1px;
+  padding: 5px;
+}
+
+p, button {
+  padding-left: 5px;
+}
+
+p, h4 {
+  font-family: sans-serif;
+}
+
+h4 {
+  text-align: center;
+}
+
+#background {
+  z-index: 0;
+  opacity: 0.5;
+  float: left;
+  width: 641px; height: 359px;
+  position: absolute;
+}
+
+#level {
+  /*width: 320px;
+  height: 400px;*/
+  float: left;
+}
+
+/*for extra space between the grid and the upgrades*/
+#upgrades-container {
+  width: 300px;
+  height: 400px;
+  overflow-y: auto;
+  outline: grey ridge 4px;
+}
+
+.upgradeid {
+  outline-style: double;
+  outline-width: 3px;
+  padding: 2px;
+  margin-bottom: 20px;
+}
+
+#numtext {
+  width: 20px;
+  font-size: 10px;
+  opacity: 0;
+}
+
+#selectboxinfo {
+  outline: black solid 1px;
+  width: 620px;
+  min-height: 80px;
+  max-height: 400px;
+  background: white;
+  background: linear-gradient(to right, white 0%, #edf2fc 100%);
+}
+
+#item-selection {
+  outline: black solid 1px;
+  min-height: 400px;
+  max-height: 600px;
+}
+
+#selectboxtext {
+  padding: 4px;
+  margin: 4px;
+  float: left;
+  font-family: monospace;
+}
+
+#selectboxcancel {
+  font-family: monospace;
+  margin: 5px;
+  padding: 5px;
+}
+
+#levelrow {
+  display: block;
+  float: left;
+  width: 100%;
+}
