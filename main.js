@@ -57,14 +57,14 @@ function setupBoxes(object) {
 	object.onclick = function(){grid(object.innerHTML, selected)};
 }
 
-var items = ["/", "4", ":", "1"];
+var items = ["/", "4", ":", "1", "."];
 
 function sendOutput() {
 	var b = 0;
 	for (var i = 1; i < 1+1; i++) {
 		var blockrow = document.createElement("div");
 		blockrow.id = "blockrow";
-		for (var j = 1; j < 4+1; j++) {
+		for (var j = 1; j < items.length+1; j++) {
 			b++;
 			var block = document.createElement("div");
 			block.id = "block" + b;
@@ -137,6 +137,9 @@ function grid(symbol, gridnum) {
 	}
 	if (symbol == "1") {
 		gridblock.style.background = "url(images/SpikesUP.png)";
+	}
+	if (symbol == ".") {
+		gridblock.style.background = "";
 	}
 	gridblock.style.backgroundSize = "20px 20px";
 	level[gridnum-1] = symbol;
