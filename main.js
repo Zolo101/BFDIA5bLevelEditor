@@ -131,7 +131,7 @@ function squareup2() {
 	//}
 	selectBox(square2);
 	grid(symboltext, square2);
-	sbutton.innerHTML = "Line";
+	sbutton.innerHTML = "From, To";
 	sbutton.setAttribute("onclick","squareup();");
 }
 
