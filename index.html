@@ -6,19 +6,31 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<script src="main.js" type="text/javascript" defer></script>
+	<script src="dumbfunctions.js" type="text/javascript" defer></script>
 </head>
 <body>
-	<h1>Level Editor (Version: 1 Alpha)</h1>
-	<p id="javascriptneed">you need javascript to run this</p>
+	<h1>BFDIA 5b Online Level Editor (Version: Alpha 2)</h1>
+	<p>In-order for your level to work you'll need a EXIT & A WT. :)</p>
+	<p id="javascriptneed">you need javascript to run this</p><!-- <input id="checkbrush" type="checkbox" name="brush" value="true">Brush (does NOT WORK!!) (hold down to paint)
+	 --><button id="squarebutton" onclick="squareup();">From, To</button><input type="text" id="symbolbutton" placeholder="Symbol">
+
+	<br>
 	<div id="level">
 		<img id="background" src="images/background.png">
 	</div>
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<div id="item-selection">Select a symbol/box</div><br>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+	<div id="selectbox"><div id="selectboxinfo"><p id="selectboxtext">You're not selecting any tiles.</p></div></div>
 
-	<div id="selectbox"><div id="selectboxinfo"><p id="selectboxtext">You're not selecting any tiles</p></div></div>
-	<div id="outputtext"><div id="outputbox"><p id="outputboxtext">Level</p></div></div><br>
-	<textarea id="output" name="txt" rows="40" cols="120" placeholder="Level output" tabindex="5"></textarea>
-	<br><br><br><br><br><br><br><br>
+	<div id="item-selection">Select a box</div>
+
+	<!-- <div id="create-div"><div id="create">So, you wanna create a new level huh?<br>(Works, but background is broken)</div><br>
+	<ul><input type="text" id="levelwidth" min="32" placeholder="Width (32 min)"><p>x</p>
+	<input type="text" id="levelheight" min=18" placeholder="Height (18 min)"></ul>
+	<button onclick="changeLevel();deleteLevel();makeLevel(levelheight,levelwidth);">Create Level!</button></div> -->
+
+
+	<br><div id="outputdiv"><div id="outputbox"><p">Level</p></div><br>
+	<textarea id="output" name="txt" rows="25" cols="35" placeholder="Level output" tabindex="5"></textarea></div>
+	<br><br><br><br><br>
 </body>
 </html>

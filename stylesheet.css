@@ -1,3 +1,8 @@
+body {
+  background: #E8E8E8FF;
+  font-family: sans-serif;
+}
+
 .box {
   width: 20px;
   height: 20px;
@@ -19,48 +24,40 @@
   float: left;
   outline-style: solid;
   outline-width: 1px;
+  outline-color: black;
   padding: 5px;
+  word-wrap: break-word;
+  font-size: 18px;
+  font-weight: bold;
+  background: lightgrey;
+  color: black;
 }
 
 p, button {
   padding-left: 5px;
 }
 
-p, h4 {
-  font-family: sans-serif;
-}
-
-h4 {
-  text-align: center;
-}
-
 #background {
   z-index: 0;
   opacity: 0.5;
   float: left;
-  width: 641px; height: 359px;
+  width: 641px; height: 360px;
   position: absolute;
 }
 
 #level {
   /*width: 320px;
   height: 400px;*/
+}
+
+#create-div, #level {
   float: left;
 }
 
-/*for extra space between the grid and the upgrades*/
-#upgrades-container {
-  width: 300px;
-  height: 400px;
-  overflow-y: auto;
-  outline: grey ridge 4px;
-}
-
-.upgradeid {
-  outline-style: double;
-  outline-width: 3px;
-  padding: 2px;
-  margin-bottom: 20px;
+#create-div, #output {
+  padding: 1s0px;
+  outline-style: solid;
+  outline-width: 1px;
 }
 
 #numtext {
@@ -80,8 +77,8 @@ h4 {
 
 #item-selection {
   outline: black solid 1px;
-  min-height: 400px;
-  max-height: 600px;
+  height: 200px;
+  max-width: 600px;
 }
 
 #selectboxtext {
