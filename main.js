@@ -24,9 +24,9 @@ $(document).ready(function() {
 	createOutput();
 });
 
-items = [[".", "url('images/Air.png')"],
+items = [[".", "'#FFFFFF'"],
 				["/","url('images/Slash.png')"],
-				["8", "url('https://vignette.wikia.nocookie.net/battlefordreamisland/images/4/46/8-1.png/revision/latest/scale-to-width-down/50?cb=20180316024251')"],
+				["8", "url('images/8.png')"],
 				["4", "url('images/EXIT.png')"],
 				[":", "url('images/WT.png')"],
 				["0", "url('images/SpikesDOWN.png')"], // Spikes
@@ -71,7 +71,7 @@ var square2 = 0;
 function createOutput() {
 	output.innerHTML = "";
 	output.innerHTML += "Level\n";
-	output.innerHTML += levelwidth + "," + levelheight + ",01,00,L\n"; // The Start
+	output.innerHTML += levelwidth + "," + levelheight + ",01,00,L"; // The Start
 	for (var i = 1; i < level.length; i++) {
 		if (i % levelwidth == 1) {
 			output.innerHTML += "\n";
@@ -103,7 +103,39 @@ function paintbrush() {
 	}
 }
 
-function squareup() {
+// function fromto() {
+// 	square1 = selected;
+// 	var sbutton = document.getElementById("fromtobutton");
+// 	sbutton.innerHTML = "You have selected tile " + square1 + ". Enter a Symbol then Select another one!";
+// 	sbutton.setAttribute("onclick","fromto2();");
+// }
+
+// function fromto2() {
+// 	square2 = selected;
+// 	var symbolbutton = document.getElementById("symbolbutton");
+// 	var sbutton = document.getElementById("squarebutton");
+// 	var symboltext = symbolbutton.value;
+// 	var h = 0;
+// 	// for (var i = Math.ceil(square1/levelwidth); i = numid2xy(1, selected); i++) { // y
+// 	// 	h++;
+// 	// 	for (var j = numid2xy(1, square1); j = numid2xy(2, square2); j++) { // x
+// 	// 		selectBox(Number()+j/*(numid2xy(2, square1)*/);
+// 	// 		grid(j);
+// 	// 	}
+// 	// }
+// 	//if (numid2xy(2, square1) == numid2xy(2, square2)) {
+// 		for (var i = square1; i < square2; i++) {
+// 			selectBox(i);
+// 			grid(symboltext, i);
+// 		}
+// 	//}
+// 	selectBox(square2);
+// 	grid(symboltext, square2);
+// 	sbutton.innerHTML = "From, To";
+// 	sbutton.setAttribute("onclick","fromto();");
+// }
+
+function square() {
 	square1 = selected;
 	var sbutton = document.getElementById("squarebutton");
 	sbutton.innerHTML = "You have selected tile " + square1 + ". Enter a Symbol then Select another one!";
@@ -124,18 +156,25 @@ function squareup2() {
 	// 	}
 	// }
 	//if (numid2xy(2, square1) == numid2xy(2, square2)) {
-		for (var i = square1; i < square2; i++) {
-			selectBox(i);
-			grid(symboltext, i);
+		for (var h = numid2xy(1,square1); h < numid2xy(1,square2)+1; h++) {
+			for (var i = numid2xy(2, square1); i < numid2xy(2, square2)+1; i++) {
+				selectBox(xy2numid(2,i,h));
+				console.log(numid2xy(1,square1));
+				grid(symboltext, xy2numid(2,i,h));
+			}
+			//selectBox(xy2numid(2,0,h));
+			//console.log(numid2xy(1,square1));
+			//grid(symboltext, xy2numid(2,0,h));
 		}
 	//}
 	selectBox(square2);
 	grid(symboltext, square2);
-	sbutton.innerHTML = "From, To";
-	sbutton.setAttribute("onclick","squareup();");
+	sbutton.innerHTML = "Square";
+	sbutton.setAttribute("onclick","square();");
 }
 
-function numid2xy(num, variablee) {
+
+function numid2xy(num, variablee) { // variablee = numid
 	if (num == 1) { // y
 		return Math.ceil(variablee/levelwidth);
 	}
@@ -145,11 +184,18 @@ function numid2xy(num, variablee) {
 	}
 }
 
-function xy2numid(x,y) {
+function xy2numid(num,x,y) {
 	var ything = (levelwidth * y) - levelwidth + 1;
+	if (num == 1) { // y
+		return ything;
+	}
+
+	if (num == 2) { // x
+		return ything + x - 1;
+	}
 	return ything + x - 1;
-	console.log((levelwidth * y) - levelwidth + 1); // y level
-	console.log(ything + x - 1); // x level
+	//console.log((levelwidth * y) - levelwidth + 1); // y level
+	//console.log(ything + x - 1); // x level
 }
 
 function sendOutput() {

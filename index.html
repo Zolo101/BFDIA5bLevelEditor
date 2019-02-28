@@ -9,10 +9,10 @@
 	<script src="dumbfunctions.js" type="text/javascript" defer></script>
 </head>
 <body>
-	<h1>BFDIA 5b Online Level Editor (Version: Alpha 2)</h1>
+	<h1>BFDIA 5b Online Level Editor (Version: Alpha 2a)</h1>
 	<p>In-order for your level to work you'll need a EXIT & A WT. :)</p>
 	<p id="javascriptneed">you need javascript to run this</p><!-- <input id="checkbrush" type="checkbox" name="brush" value="true">Brush (does NOT WORK!!) (hold down to paint)
-	 --><button id="squarebutton" onclick="squareup();">From, To</button><input type="text" id="symbolbutton" placeholder="Symbol">
+	 --<!-- ><button id="fromtobutton" onclick="fromto();">From, To</button> --><button id="squarebutton" onclick="square();">Square</button><input type="text" id="symbolbutton" placeholder="Symbol">
 
 	<br>
 	<div id="level">
@@ -27,7 +27,6 @@
 	<ul><input type="text" id="levelwidth" min="32" placeholder="Width (32 min)"><p>x</p>
 	<input type="text" id="levelheight" min=18" placeholder="Height (18 min)"></ul>
 	<button onclick="changeLevel();deleteLevel();makeLevel(levelheight,levelwidth);">Create Level!</button></div> -->
-
 
 	<br><div id="outputdiv"><div id="outputbox"><p">Level</p></div><br>
 	<textarea id="output" name="txt" rows="25" cols="35" placeholder="Level output" tabindex="5"></textarea></div>

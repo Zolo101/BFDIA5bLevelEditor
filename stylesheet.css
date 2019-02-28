@@ -15,7 +15,7 @@ body {
   outline-width: 1px;
   outline-color: gray;
   background: #FFFFFF;
-  z-index: 2;
+  z-index: 1;
 }
 
 .block {
@@ -31,6 +31,7 @@ body {
   font-weight: bold;
   background: lightgrey;
   color: black;
+  object-fit: cover;
 }
 
 p, button {
