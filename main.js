@@ -24,7 +24,7 @@ $(document).ready(function() {
 	createOutput();
 });
 
-items = [[".", "'#FFFFFF'"],
+items = [[".", "#FFFFFF"],
 				["/","url('images/Slash.png')"],
 				["8", "url('images/8.png')"],
 				["4", "url('images/EXIT.png')"],
@@ -270,8 +270,8 @@ function selectBox(numid) {
 	document.getElementById("selectboxtext").innerHTML = "You have selected tile " + numid + ".";
 	boxstyle.outline = "3px solid red";
 	//console.log(numid);
-	console.log((numid/levelheight)*levelheight % levelwidth); // x
-	console.log(Math.ceil(numid/levelwidth)); // y
+	//console.log((numid/levelheight)*levelheight % levelwidth); // x
+	//console.log(Math.ceil(numid/levelwidth)); // y
 	//console.log(levelheight*(numid/levelheight));
 
 	oldnum = numid;
@@ -294,4 +294,5 @@ function grid(symbol, gridnum) {
 	}
 	gridblock.style.backgroundSize = "20px 20px";
 	level[gridnum] = symbol;
+	//createOutput(); // this automates outputting, although it makes functions lag.
 }
