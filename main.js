@@ -37,15 +37,18 @@ backgrounds = [["00", "url('images/backgrounds/00.png')", "images/backgrounds/00
 
 items = [[".", "#FFFFFF"],
 				["/","url('images/Slash.png')"],
+				["7", "url('images/7.png')"],
 				["8", "url('images/8.png')"],
+				["9", "url('images/9.png')"],
 				["4", "url('images/EXIT2.png')"],
 				[":", "url('images/WT.png')"],
 				["0", "url('images/SpikesDOWN.png')"], // Spikes
 				["1", "url('images/SpikesUP.png')"],
 				["2", "url('images/SpikesRIGHT.png')"],
 				["3", "url('images/SpikesLEFT.png')"],
-				//["&#60", "url('images/ConvLEFT.png')"], // Conveyor, doesnt work :(
-				//["&#62", "url('images/ConvRIGHT.png')"],
+				["v", "url('images/SpikesLEFT.png')"],
+				//["String.fromCharCode(0x003C)", "url('images/ConvLEFT.png')"], // Conveyor, doesnt work :(
+				//["String.fromCharCode(0x003E)", "url('images/ConvRIGHT.png')"],
 				[";", "url('images/Spring.png')"], // Spring
 				["M", "url('images/Yellow1.png')"], // Switch
 				["N", "url('images/Yellow2.png')"],
@@ -53,7 +56,17 @@ items = [[".", "#FFFFFF"],
 				["P", "url('images/InvisibleYellow2.png')"],
 				["Q", "url('images/YellowLEFT.png')"],
 				["R", "url('images/YellowRIGHT.png')"],
-				["V", "url('images/YellowSwitch.png')"]];
+				["V", "url('images/YellowSwitch.png')"],
+				["=", "url('images/Equal.png')"],
+				["@", "url('images/Plat1.png')"], // Platform
+				["r", "url('images/Plat2.png')"],
+				["Z", "url('images/Plat3.png')"],
+				["s", "url('images/Plat4.png')"],
+				[String.fromCharCode(0x2555), "url('images/Lava.png')"],
+				[String.fromCharCode(0x2524), "url('images/Acid.png')"],
+				["_", "url('images/Lamp.png')"], // Deco
+				["`", "url('images/GrayGems.png')"],
+				["6", "url('images/6.png')"]]; // Misc
 
 var levelwidth = 32;
 var levelheight = 18;
@@ -223,6 +236,7 @@ function sendOutput() {
 			block.innerHTML = items[b-1][0];
 			block.style.background = items[b-1][1];
 			block.style.backgroundSize = "cover";
+			block.style.backgroundColor = "#DBDBDBFF";
 			blockrow.appendChild(block);
 			block.className = "block";
 			setupBoxes(block);
