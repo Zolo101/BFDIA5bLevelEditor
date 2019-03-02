@@ -46,9 +46,8 @@ items = [[".", "#FFFFFF"],
 				["1", "url('images/SpikesUP.png')"],
 				["2", "url('images/SpikesRIGHT.png')"],
 				["3", "url('images/SpikesLEFT.png')"],
-				["v", "url('images/SpikesLEFT.png')"],
-				//["String.fromCharCode(0x003C)", "url('images/ConvLEFT.png')"], // Conveyor, doesnt work :(
-				//["String.fromCharCode(0x003E)", "url('images/ConvRIGHT.png')"],
+				["Z", "url('images/ConvLEFT.png')"], // Conveyor, doesnt work :(
+				["B", "url('images/ConvRIGHT.png')"],
 				[";", "url('images/Spring.png')"], // Spring
 				["M", "url('images/Yellow1.png')"], // Switch
 				["N", "url('images/Yellow2.png')"],
@@ -58,10 +57,10 @@ items = [[".", "#FFFFFF"],
 				["R", "url('images/YellowRIGHT.png')"],
 				["V", "url('images/YellowSwitch.png')"],
 				["=", "url('images/Equal.png')"],
-				["@", "url('images/Plat1.png')"], // Platform
-				["r", "url('images/Plat2.png')"],
-				["Z", "url('images/Plat3.png')"],
-				["s", "url('images/Plat4.png')"],
+				// ["@", "url('images/Plat1.png')"], // Platform
+				// ["r", "url('images/Plat2.png')"],
+				// ["Z", "url('images/Plat3.png')"],
+				// ["s", "url('images/Plat4.png')"],
 				[String.fromCharCode(0x2555), "url('images/Lava.png')"],
 				[String.fromCharCode(0x2524), "url('images/Acid.png')"],
 				["_", "url('images/Lamp.png')"], // Deco
@@ -95,8 +94,15 @@ function createOutput() {
 		if (i % levelwidth == 1) {
 			output.innerHTML += "\n";
 		}
-
-		output.innerHTML += level[i];
+		if (level[i] != "Z" && level[i] != "B") {
+			output.innerHTML += level[i];
+		}
+		if (level[i] == "Z") {
+			output.innerHTML += "<";
+		}
+		if (level[i] == "B") {
+			output.innerHTML += ">";
+		}
 	}
 
 	output.innerHTML += "\n01,03.50,00.00,10\n00\n000000"; // Book & End
