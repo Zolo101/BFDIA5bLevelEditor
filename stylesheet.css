@@ -62,11 +62,6 @@ p, button {
   position: absolute;
 }
 
-#level {
-  /*width: 320px;
-  height: 400px;*/
-}
-
 #create-div, #level {
   float: left;
 }

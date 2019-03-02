@@ -293,9 +293,7 @@ function selectBox(numid) {
 	var levelbox = document.getElementById(numid);
 	var boxstyle = levelbox.style;
 	var oldbox = document.getElementById(oldnum);
-	if (boxstyle.outline = "3px solid red") {
-		oldbox.style.outline = "1px solid gray";
-	}
+	oldbox.style.outline = "1px solid gray";
 	document.getElementById("selectboxtext").innerHTML = "You have selected tile " + numid + ".";
 	boxstyle.outline = "3px solid red";
 	//console.log(numid);
@@ -311,13 +309,13 @@ function selectBox(numid) {
 	oldnum = numid;
 }
 
-function resetlevel() {
-	level = [];
-	for (var i = 0; i < level.length; i++) {
-		document.getElementById(i).style.background = "#f6f8f9";
-	}
-	document.getElementById("selectboxtext").innerHTML = "You're not selecting any tiles.";
-}
+// function resetlevel() {
+// 	level = [];
+// 	for (var i = 0; i < level.length; i++) {
+// 		document.getElementById(i).style.background = "#f6f8f9";
+// 	}
+// 	document.getElementById("selectboxtext").innerHTML = "You're not selecting any tiles.";
+// }
 
 function grid(symbol, gridnum) {
 	var gridblock = document.getElementById(gridnum);
