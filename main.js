@@ -62,11 +62,7 @@ for (var i = 0; i < levelwidth*levelheight; i++) {
 }
 
 console.log(level.length);
-var outputlevel = "";
 var selected = 0;
-var lol = 1;
-var lol2 = 0;
-var num = 0;
 var output = document.getElementById("output");
 var oldnum = 10;
 var square1 = 0;
@@ -77,7 +73,6 @@ var square2 = 0;
 // }, 5000);
 
 function createOutput() {
-	var x = 0;
 	output.innerHTML = "";
 	output.innerHTML += "Level\n";
 	output.innerHTML += levelwidth + "," + levelheight + "," + currentback + ",00,L"; // The Start
@@ -103,14 +98,14 @@ function setupBoxes(box) {
 	box.onclick = function(){grid(firstofstring, selected)};
 }
 
-function paintbrush() {
-	var firstofstring = box.innerHTML.slice(-1);
-	var checkbrush = document.getElementById("checkbox");
-	var buttonbutton = document.getElementsByTagName('box');
-	if (checkbrush.value == "true") {
-		buttonbutton.onmousedown = function(){grid()}
-	}
-}
+// function paintbrush() {
+// 	var firstofstring = box.innerHTML.slice(-1);
+// 	var checkbrush = document.getElementById("checkbox");
+// 	var buttonbutton = document.getElementsByTagName('box');
+// 	if (checkbrush.value == "true") {
+// 		buttonbutton.onmousedown = function(){grid()}
+// 	}
+// }
 
 // function fromto() {
 // 	square1 = selected;
@@ -282,19 +277,19 @@ function makeLevel(iv,jv) {
 	setupButton();
 }
 
-function deleteLevel() {
-	for (var i = 0; i < levelheight; i++)
-	$("#levelrow").remove();
-}
+// function deleteLevel() {
+// 	for (var i = 0; i < levelheight; i++)
+// 	$("#levelrow").remove();
+// }
 
-function changeLevel() {
-	levelwidth = document.getElementById("levelwidth").value;
-	levelheight = document.getElementById("levelheight").value;
-}
+// function changeLevel() {
+// 	levelwidth = document.getElementById("levelwidth").value;
+// 	levelheight = document.getElementById("levelheight").value;
+// }
 
 function selectBox(numid) {
 	selected = numid;
-	var selectedBox = level[numid-1];
+	//var selectedBox = level[numid-1];
 	var levelbox = document.getElementById(numid);
 	var boxstyle = levelbox.style;
 	var oldbox = document.getElementById(oldnum);
