@@ -1,8 +1,10 @@
 $(document).ready(function() {
 
 	$('#javascriptneed').remove(); // if javascript is present.
+	//makeLevel(levelheight,levelwidth);
 	makeLevel(levelheight,levelwidth);
 	sendOutput();
+	backgroundSendOutput();
 	//for selectbox
 	var selectboxinfo = document.createElement("p");
 	selectboxinfo.id = "selectboxname";
@@ -23,6 +25,13 @@ $(document).ready(function() {
 	grid(".", levelheight*levelwidth);
 	createOutput();
 });
+
+var currentback = "00";
+backgrounds = [["00", "url('images/backgrounds/00.png')", "images/backgrounds/00.png"],
+					["02", "url('images/backgrounds/02.png')", "images/backgrounds/02.png"],
+					["03", "url('images/backgrounds/03.png')", "images/backgrounds/03.png"],
+					["07", "url('images/backgrounds/07.png')", "images/backgrounds/07.png"],
+					["11", "url('images/backgrounds/11.png')", "images/backgrounds/11.png"]];
 
 items = [[".", "#FFFFFF"],
 				["/","url('images/Slash.png')"],
@@ -69,9 +78,10 @@ var square2 = 0;
 // }, 5000);
 
 function createOutput() {
+	var x = 0;
 	output.innerHTML = "";
 	output.innerHTML += "Level\n";
-	output.innerHTML += levelwidth + "," + levelheight + ",01,00,L"; // The Start
+	output.innerHTML += levelwidth + "," + levelheight + "," + currentback + ",00,L"; // The Start
 	for (var i = 1; i < level.length; i++) {
 		if (i % levelwidth == 1) {
 			output.innerHTML += "\n";
@@ -180,7 +190,11 @@ function numid2xy(num, variablee) { // variablee = numid
 	}
 
 	if (num == 2) { // x
-		return (variablee/levelheight)*levelheight % levelwidth;
+		if ((variablee/levelheight)*levelheight % levelwidth == 0) {
+			return levelwidth;
+		} else {
+			return (variablee/levelheight)*levelheight % levelwidth;
+		}
 	}
 }
 
@@ -220,6 +234,28 @@ function sendOutput() {
 	}
 }
 
+function backgroundSendOutput() {
+	for (var i = 0; i < backgrounds.length; i++) {
+		var backgroundblock = document.createElement("div");
+		backgroundblock.id = "backgroundblock" + i;
+
+		backgroundblock.innerHTML = backgrounds[i][0];
+		backgroundblock.style.background = backgrounds[i][1];
+		backgroundblock.style.backgroundPosition = "center";
+		backgroundblock.style.backgroundSize = "cover";
+		backgroundblock.className = "backgroundblock";
+		document.getElementById("backgroundrow").appendChild(backgroundblock);
+		setBackground(i);
+	}
+}
+
+function setBackground(background) {
+	document.getElementById("backgroundblock" + background).onclick = function(){
+		document.getElementById("background").src = backgrounds[background][2];
+		currentback = backgrounds[background][0];
+	};
+}
+
 function createButton(num) {
 	var numer = num+1;
 	var buttonbutton = document.createElement("button");
@@ -230,7 +266,6 @@ function createButton(num) {
 }
 
 function makeLevel(iv,jv) {
-
 	var c = 0; // how much boxes we have made
 	for (var i = 0; i < iv; i++) {
 		var levelrow = document.createElement("div");
@@ -271,6 +306,11 @@ function selectBox(numid) {
 	boxstyle.outline = "3px solid red";
 	//console.log(numid);
 	//console.log((numid/levelheight)*levelheight % levelwidth); // x
+	//if ((numid/levelheight)*levelheight % levelwidth == 0) {
+	//	console.log(32);
+	//} else {
+	//	console.log((numid/levelheight)*levelheight % levelwidth);
+	//}
 	//console.log(Math.ceil(numid/levelwidth)); // y
 	//console.log(levelheight*(numid/levelheight));
 

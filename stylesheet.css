@@ -34,6 +34,22 @@ body {
   object-fit: cover;
 }
 
+.backgroundblock {
+  width: 100px;
+  height: 50px;
+  float: left;
+  outline-style: solid;
+  outline-width: 1px;
+  outline-color: black;
+  padding: 5px;
+  word-wrap: break-word;
+  font-size: 18px;
+  font-weight: bold;
+  background: lightgrey;
+  color: white;
+  object-fit: cover;
+}
+
 p, button {
   padding-left: 5px;
 }
