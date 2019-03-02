@@ -51,8 +51,7 @@ items = [[".", "#FFFFFF"],
 				["P", "url('images/InvisibleYellow2.png')"],
 				["Q", "url('images/YellowLEFT.png')"],
 				["R", "url('images/YellowRIGHT.png')"],
-				["V", "url('images/YellowSwitch.png')"],
-				[" ", "url('images/Wood.png')"]]; // Misc
+				["V", "url('images/YellowSwitch.png')"]];
 
 var levelwidth = 32;
 var levelheight = 18;
