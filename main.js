@@ -1,5 +1,6 @@
 $(document).ready(function() {
-
+	backgrounddiv.style.backgroundImage = backgrounds[0][1];
+	backgrounddiv.style.backgroundSize = "cover";
 	$('#javascriptneed').remove(); // if javascript is present.
 	//makeLevel(levelheight,levelwidth);
 	makeLevel(levelheight,levelwidth);
@@ -26,6 +27,7 @@ $(document).ready(function() {
 	createOutput();
 });
 
+var backgrounddiv = document.getElementById("background");
 var currentback = "00";
 backgrounds = [["00", "url('images/backgrounds/00.png')", "images/backgrounds/00.png"],
 					["02", "url('images/backgrounds/02.png')", "images/backgrounds/02.png"],
@@ -36,7 +38,7 @@ backgrounds = [["00", "url('images/backgrounds/00.png')", "images/backgrounds/00
 items = [[".", "#FFFFFF"],
 				["/","url('images/Slash.png')"],
 				["8", "url('images/8.png')"],
-				["4", "url('images/EXIT.png')"],
+				["4", "url('images/EXIT2.png')"],
 				[":", "url('images/WT.png')"],
 				["0", "url('images/SpikesDOWN.png')"], // Spikes
 				["1", "url('images/SpikesUP.png')"],
@@ -220,6 +222,7 @@ function sendOutput() {
 			
 			block.innerHTML = items[b-1][0];
 			block.style.background = items[b-1][1];
+			block.style.backgroundSize = "cover";
 			blockrow.appendChild(block);
 			block.className = "block";
 			setupBoxes(block);
@@ -245,7 +248,7 @@ function backgroundSendOutput() {
 
 function setBackground(background) {
 	document.getElementById("backgroundblock" + background).onclick = function(){
-		document.getElementById("background").src = backgrounds[background][2];
+		document.getElementById("background").style.backgroundImage = backgrounds[background][1];
 		currentback = backgrounds[background][0];
 	};
 }
