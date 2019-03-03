@@ -46,7 +46,7 @@ items = [[".", "#FFFFFF"],
 				["1", "url('images/SpikesUP.png')"],
 				["2", "url('images/SpikesRIGHT.png')"],
 				["3", "url('images/SpikesLEFT.png')"],
-				["Z", "url('images/ConvLEFT.png')"], // Conveyor, doesnt work :(
+				["Z", "url('images/ConvLEFT.png')"], // Conveyor
 				["B", "url('images/ConvRIGHT.png')"],
 				[";", "url('images/Spring.png')"], // Spring
 				["M", "url('images/Yellow1.png')"], // Switch
@@ -89,7 +89,7 @@ var square2 = 0;
 function createOutput() {
 	output.innerHTML = "";
 	output.innerHTML += "Level\n";
-	output.innerHTML += levelwidth + "," + levelheight + "," + currentback + ",00,L"; // The Start
+	output.innerHTML += levelwidth + "," + levelheight + ",01," + currentback + ",L"; // The Start
 	for (var i = 1; i < level.length; i++) {
 		if (i % levelwidth == 1) {
 			output.innerHTML += "\n";
