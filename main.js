@@ -89,6 +89,7 @@ var output = document.getElementById("output");
 var oldnum = 10;
 var square1 = 0;
 var square2 = 0;
+var pencilv = 0;
 
 // window.setInterval(function() {
 	createOutput();
@@ -262,8 +263,12 @@ function createButton(num) {
 		if (document.getElementById("symbolbutton").value == "") {
 			selectBox(buttonbutton.parentElement.id);
 		} else {
-			selectBox(buttonbutton.parentElement.id);
-			grid(document.getElementById("symbolbutton").value, numer);
+			if (pencilv == true) {
+				selectBox(buttonbutton.parentElement.id);
+				grid(document.getElementById("symbolbutton").value, numer);
+			} else {
+				selectBox(buttonbutton.parentElement.id);
+			}
 		}
 	};
 }
@@ -340,4 +345,18 @@ function showGroup(group) {
 			groupedboxes[i].style.display = "inline";
 		}
 	}
+}
+
+function pencil() {
+	var penbutton = document.getElementById("pencilbutton");
+	if (pencilv == true) {
+		penbutton.innerHTML = "Pencil Mode OFF";
+		pencilv = false;
+		return;
+	}
+	if (pencilv == false) {
+		penbutton.innerHTML = "Pencil Mode ON";
+		pencilv = true;
+		return;
+	} 
 }
