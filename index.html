@@ -12,8 +12,11 @@
 	<div id="editor">
 	<div id="grid" class="column"><h1>BFDIA 5b Online Level Editor (Version: Alpha 3)</h1>
 	<p>In-order for your level to work you'll need a EXIT (4) :)</p>
-	<p id="javascriptneed">you need javascript to run this</p><!-- <input id="checkbrush" type="checkbox" name="brush" value="true">Brush (does NOT WORK!!) (hold down to paint)
-	 --<!-- ><button id="fromtobutton" onclick="fromto();">From, To</button> --><button id="squarebutton" onclick="square();">Square</button><input type="text" id="symbolbutton" placeholder="Symbol">
+	<p id="javascriptneed">either you dont have javascript or jquery is being dumb</p>
+	<p id="widthneed"><b>WARNING: This window is a bit too small! Please resize this window to a larger size.</b></p>
+
+	<!-- <input id="checkbrush" type="checkbox" name="brush" value="true">Brush (does NOT WORK!!) (hold down to paint)
+	 --<!-- ><button id="fromtobutton" onclick="fromto();">From, To</button> --><button id="squarebutton" onclick="square();">Square</button><input type="text" id="symbolbutton" placeholder="Symbol"><!-- <button id="pencilbutton" onclick="pencil();">Pencil mode OFF</button> -->
 
 	<br>
 	<div id="level">
@@ -24,13 +27,13 @@
 
 	<div id="grid-selection" class="column"><div id="item-selection">Select a item
 		<ul>
-			<li><a onclick="showGroup('All')" href="#a">All</li>
-			<li><a onclick="showGroup('Ground')" href="#a">Ground</li>
-			<li><a onclick="showGroup('Killable')" href="#a">Killables</li>
-			<li><a onclick="showGroup('Special')" href="#a">Special</li>
-			<li><a onclick="showGroup('Movement')" href="#a">Movement</li>
-			<li><a onclick="showGroup('Deco')" href="#a">Deco</li>
-			<li><a onclick="showGroup('Switch')" href="#a">Switch</li>
+			<li><a onclick="showGroup('All')" href="#a">All</a></li>
+			<li><a onclick="showGroup('Ground')" href="#a">Ground</a></li>
+			<li><a onclick="showGroup('Killable')" href="#a">Killables</a></li>
+			<li><a onclick="showGroup('Special')" href="#a">Special</a></li>
+			<li><a onclick="showGroup('Movement')" href="#a">Movement</a></li>
+			<li><a onclick="showGroup('Deco')" href="#a">Deco</a></li>
+			<li><a onclick="showGroup('Switch')" href="#a">Switch</a></li>
 		</ul><br>
 	</div>
 	<br><div id="background-selection">Select a background<div id="backgroundrow"></div></div><br><br><br>

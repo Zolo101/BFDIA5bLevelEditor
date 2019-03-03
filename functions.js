@@ -34,7 +34,7 @@ function grid(symbol, gridnum) {
 	var gridblock = document.getElementById(gridnum);
 	for (i = 0; i < items.length; i++) {
 		if (symbol == items[i][0]) {
-			gridblock.style.background = items[i][1];
+			gridblock.style.background = items[i][2];
 		}
 	}
 	gridblock.style.backgroundSize = "20px 20px";

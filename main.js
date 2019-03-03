@@ -35,7 +35,7 @@ backgrounds = [["00", "url('images/backgrounds/00.png')", "images/backgrounds/00
 					["07", "url('images/backgrounds/07.png')", "images/backgrounds/07.png"],
 					["11", "url('images/backgrounds/11.png')", "images/backgrounds/11.png"]];
 
-// types of items
+// Types of items
 // Ground
 // Killable
 // Special
@@ -45,9 +45,9 @@ backgrounds = [["00", "url('images/backgrounds/00.png')", "images/backgrounds/00
 
 items = [[".", "Special", "#FFFFFF"],
 				["/", "Ground", "url('images/Slash.png')"],
-				["7", "Deco", "url('images/7.png')"],
+				["7", "Ground", "url('images/7.png')"],
 				["8", "Ground", "url('images/8.png')"],
-				["9", "Deco", "url('images/9.png')"],
+				["9", "Ground", "url('images/9.png')"],
 				["4", "Special", "url('images/EXIT2.png')"],
 				[":", "Special", "url('images/WT.png')"],
 				["0", "Killable", "url('images/SpikesDOWN.png')"], // Spikes
@@ -258,7 +258,14 @@ function createButton(num) {
 	buttonbutton.id = "numtext";
 	buttonbutton.innerHTML = numer;
 	document.getElementById(numer).appendChild(buttonbutton);
-	buttonbutton.onclick = function(){selectBox(buttonbutton.parentElement.id)};
+	buttonbutton.onclick = function(){
+		if (document.getElementById("symbolbutton").value == "") {
+			selectBox(buttonbutton.parentElement.id);
+		} else {
+			selectBox(buttonbutton.parentElement.id);
+			grid(document.getElementById("symbolbutton").value, numer);
+		}
+	};
 }
 
 function makeLevel(iv,jv) {

@@ -3,12 +3,26 @@ body {
   font-family: sans-serif;
 }
 
-@media screen and (min-width: 1620px) { /* Make sure the website uses the empty space */
+@media screen and (min-width: 1220px) { /* Make sure the website uses the empty space */
   .column {
     float: left;
     width: 40%;
     padding: 10px;
   }
+}
+
+#widthneed {
+  display: inline;
+}
+
+@media screen and (min-width: 483px) {
+  #widthneed {
+    display: none;
+  }
+}
+
+#grid {
+  width: 650px;
 }
 
 ul {
@@ -110,7 +124,7 @@ p, button {
 }
 
 #item-selection {
-  outline: black solid 1px;
+  /*outline: black solid 1px;*/
   height: 200px;
   max-width: 600px;
 }
