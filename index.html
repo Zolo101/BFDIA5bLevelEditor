@@ -6,10 +6,11 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<script src="main.js" type="text/javascript" defer></script>
-	<script src="dumbfunctions.js" type="text/javascript" defer></script>
+	<script src="functions.js" type="text/javascript" defer></script>
 </head>
 <body>
-	<h1>BFDIA 5b Online Level Editor (Version: Alpha 2b)</h1>
+	<div id="editor">
+	<div id="grid" class="column"><h1>BFDIA 5b Online Level Editor (Version: Alpha 3)</h1>
 	<p>In-order for your level to work you'll need a EXIT (4) :)</p>
 	<p id="javascriptneed">you need javascript to run this</p><!-- <input id="checkbrush" type="checkbox" name="brush" value="true">Brush (does NOT WORK!!) (hold down to paint)
 	 --<!-- ><button id="fromtobutton" onclick="fromto();">From, To</button> --><button id="squarebutton" onclick="square();">Square</button><input type="text" id="symbolbutton" placeholder="Symbol">
@@ -19,18 +20,29 @@
 		<div id="background"></div> <!-- Default background -->
 	</div>
 	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-	<div id="selectbox"><div id="selectboxinfo"><p id="selectboxtext">You're not selecting any tiles.</p></div></div>
+	<div id="selectbox"><div id="selectboxinfo"><p id="selectboxtext">You're not selecting any tiles.</p></div></div></div>
 
-	<div id="item-selection">Select a item</div>
-	<div id="background-selection">Select a background<div id="backgroundrow"></div></div><br><br><br>
+	<div id="grid-selection" class="column"><div id="item-selection">Select a item
+		<ul>
+			<li><a onclick="showGroup('All')" href="#a">All</li>
+			<li><a onclick="showGroup('Ground')" href="#a">Ground</li>
+			<li><a onclick="showGroup('Killable')" href="#a">Killables</li>
+			<li><a onclick="showGroup('Special')" href="#a">Special</li>
+			<li><a onclick="showGroup('Movement')" href="#a">Movement</li>
+			<li><a onclick="showGroup('Deco')" href="#a">Deco</li>
+			<li><a onclick="showGroup('Switch')" href="#a">Switch</li>
+		</ul><br>
+	</div>
+	<br><div id="background-selection">Select a background<div id="backgroundrow"></div></div><br><br><br>
 
 	<!-- <div id="create-div"><div id="create">So, you wanna create a new level huh?<br>(Works, but background is broken)</div><br>
 	<ul><input type="text" id="levelwidth" min="32" placeholder="Width (32 min)"><p>x</p>
 	<input type="text" id="levelheight" min=18" placeholder="Height (18 min)"></ul>
 	<button onclick="changeLevel();deleteLevel();makeLevel(levelheight,levelwidth);">Create Level!</button></div> -->
 
-	<br><div id="outputdiv"><div id="outputbox"><p">Level</p></div><br>
+	<br><div id="outputdiv"><div id="outputbox"><p>Level</p></div><br>
 	<textarea id="output" name="txt" rows="25" cols="35" placeholder="Level output" tabindex="5"></textarea></div>
-	<br><br><br><br><br>
+	<br><br><br><br><br></div>
+	</div>
 </body>
 </html>

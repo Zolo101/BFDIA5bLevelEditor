@@ -3,6 +3,27 @@ body {
   font-family: sans-serif;
 }
 
+@media screen and (min-width: 1620px) { /* Make sure the website uses the empty space */
+  .column {
+    float: left;
+    width: 40%;
+    padding: 10px;
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  display: inline;
+  outline: 1px solid gray;
+  padding: 2px;
+  background-color: lightblue;
+}
+
 .box {
   width: 20px;
   height: 20px;
@@ -67,12 +88,8 @@ p, button {
   position: absolute;
 }
 
-#create-div, #level {
-  float: left;
-}
-
 #create-div, #output {
-  padding: 1s0px;
+  padding: 10px;
   outline-style: solid;
   outline-width: 1px;
 }

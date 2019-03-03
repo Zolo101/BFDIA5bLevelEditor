@@ -35,37 +35,45 @@ backgrounds = [["00", "url('images/backgrounds/00.png')", "images/backgrounds/00
 					["07", "url('images/backgrounds/07.png')", "images/backgrounds/07.png"],
 					["11", "url('images/backgrounds/11.png')", "images/backgrounds/11.png"]];
 
-items = [[".", "#FFFFFF"],
-				["/","url('images/Slash.png')"],
-				["7", "url('images/7.png')"],
-				["8", "url('images/8.png')"],
-				["9", "url('images/9.png')"],
-				["4", "url('images/EXIT2.png')"],
-				[":", "url('images/WT.png')"],
-				["0", "url('images/SpikesDOWN.png')"], // Spikes
-				["1", "url('images/SpikesUP.png')"],
-				["2", "url('images/SpikesRIGHT.png')"],
-				["3", "url('images/SpikesLEFT.png')"],
-				["Z", "url('images/ConvLEFT.png')"], // Conveyor
-				["B", "url('images/ConvRIGHT.png')"],
-				[";", "url('images/Spring.png')"], // Spring
-				["M", "url('images/Yellow1.png')"], // Switch
-				["N", "url('images/Yellow2.png')"],
-				["O", "url('images/InvisibleYellow1.png')"],
-				["P", "url('images/InvisibleYellow2.png')"],
-				["Q", "url('images/YellowLEFT.png')"],
-				["R", "url('images/YellowRIGHT.png')"],
-				["V", "url('images/YellowSwitch.png')"],
-				["=", "url('images/Equal.png')"],
+// types of items
+// Ground
+// Killable
+// Special
+// Movement
+// Deco
+// Switch
+
+items = [[".", "Special", "#FFFFFF"],
+				["/", "Ground", "url('images/Slash.png')"],
+				["7", "Deco", "url('images/7.png')"],
+				["8", "Ground", "url('images/8.png')"],
+				["9", "Deco", "url('images/9.png')"],
+				["4", "Special", "url('images/EXIT2.png')"],
+				[":", "Special", "url('images/WT.png')"],
+				["0", "Killable", "url('images/SpikesDOWN.png')"], // Spikes
+				["1", "Killable", "url('images/SpikesUP.png')"],
+				["2", "Killable", "url('images/SpikesRIGHT.png')"],
+				["3", "Killable", "url('images/SpikesLEFT.png')"],
+				["Z", "Movement", "url('images/ConvLEFT.png')"], // Conveyor
+				["B", "Movement", "url('images/ConvRIGHT.png')"],
+				[";", "Movement", "url('images/Spring.png')"], // Spring
+				["M", "Switch", "url('images/Yellow1.png')"], // Switch
+				["N", "Switch", "url('images/Yellow2.png')"],
+				["O", "Switch", "url('images/InvisibleYellow1.png')"],
+				["P", "Switch", "url('images/InvisibleYellow2.png')"],
+				["Q", "Switch", "url('images/YellowLEFT.png')"],
+				["R", "Switch", "url('images/YellowRIGHT.png')"],
+				["V", "Switch", "url('images/YellowSwitch.png')"],
+				["=", "Killable", "url('images/Equal.png')"],
 				// ["@", "url('images/Plat1.png')"], // Platform
 				// ["r", "url('images/Plat2.png')"],
 				// ["Z", "url('images/Plat3.png')"],
 				// ["s", "url('images/Plat4.png')"],
-				[String.fromCharCode(0x2555), "url('images/Lava.png')"],
-				[String.fromCharCode(0x2524), "url('images/Acid.png')"],
-				["_", "url('images/Lamp.png')"], // Deco
-				["`", "url('images/GrayGems.png')"],
-				["6", "url('images/6.png')"]]; // Misc
+				[String.fromCharCode(0x2555), "Killable", "url('images/Lava.png')"],
+				[String.fromCharCode(0x2524), "Killable", "url('images/Acid.png')"],
+				["_", "Deco", "url('images/Lamp.png')"], // Deco
+				["`", "Deco", "url('images/GrayGems.png')"],
+				["6", "Special", "url('images/6.png')"]]; // Misc
 
 var levelwidth = 32;
 var levelheight = 18;
@@ -198,53 +206,24 @@ function squareup2() {
 	sbutton.setAttribute("onclick","square();");
 }
 
-
-function numid2xy(num, variablee) { // variablee = numid
-	if (num == 1) { // y
-		return Math.ceil(variablee/levelwidth);
-	}
-
-	if (num == 2) { // x
-		if ((variablee/levelheight)*levelheight % levelwidth == 0) {
-			return levelwidth;
-		} else {
-			return (variablee/levelheight)*levelheight % levelwidth;
-		}
-	}
-}
-
-function xy2numid(num,x,y) {
-	var ything = (levelwidth * y) - levelwidth + 1;
-	if (num == 1) { // y
-		return ything;
-	}
-
-	if (num == 2) { // x
-		return ything + x - 1;
-	}
-	return ything + x - 1;
-	//console.log((levelwidth * y) - levelwidth + 1); // y level
-	//console.log(ything + x - 1); // x level
-}
-
 function sendOutput() {
-	var b = 0;
 	for (var i = 0; i < 1; i++) {
 		var blockrow = document.createElement("div");
 		blockrow.id = "blockrow";
 		for (var j = 0; j < items.length; j++) {
-			b++;
 			var block = document.createElement("div");
-			block.id = "block" + b;
+			block.id = "block" + j;
 			//unicode = b+47;
 			//block.innerHTML = "&#0" + unicode;
 			
-			block.innerHTML = items[b-1][0];
-			block.style.background = items[b-1][1];
+			block.innerHTML = items[j][0];
+			block.style.background = items[j][2];
 			block.style.backgroundSize = "cover";
 			block.style.backgroundColor = "#DBDBDBFF";
 			blockrow.appendChild(block);
-			block.className = "block";
+			block.className = "block ";
+			block.className += items[j][1]
+
 			setupBoxes(block);
 		}
 		document.getElementById("item-selection").appendChild(blockrow);
@@ -317,7 +296,7 @@ function selectBox(numid) {
 	var boxstyle = levelbox.style;
 	var oldbox = document.getElementById(oldnum);
 	oldbox.style.outline = "1px solid gray";
-	document.getElementById("selectboxtext").innerHTML = "You have selected tile " + numid + ".";
+	document.getElementById("selectboxtext").innerHTML = "You have selected tile " + numid + ". " + "("+numid2xy(1,numid)+","+numid2xy(2,numid)+")";
 	boxstyle.outline = "3px solid red";
 	//console.log(numid);
 	//console.log((numid/levelheight)*levelheight % levelwidth); // x
@@ -340,14 +319,18 @@ function selectBox(numid) {
 // 	document.getElementById("selectboxtext").innerHTML = "You're not selecting any tiles.";
 // }
 
-function grid(symbol, gridnum) {
-	var gridblock = document.getElementById(gridnum);
-	for (i = 0; i < items.length; i++) {
-		if (symbol == items[i][0]) {
-			gridblock.style.background = items[i][1];
+function showGroup(group) {
+	if (group == "All") {
+		for (i = 0; i < items.length; i++) {
+			document.getElementById("block" + i).style.display = "inline";
+		}
+	} else {
+		for (i = 0; i < items.length; i++) {
+			document.getElementById("block" + i).style.display = "none";
+		}
+		var groupedboxes = document.getElementsByClassName(group);
+		for (i = 0; i < groupedboxes.length; i++) {
+			groupedboxes[i].style.display = "inline";
 		}
 	}
-	gridblock.style.backgroundSize = "20px 20px";
-	level[gridnum] = symbol;
-	//createOutput(); // this automates outputting, although it makes functions lag.
 }
