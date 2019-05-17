@@ -25,6 +25,12 @@ body {
   width: 650px;
 }
 
+.center {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
 ul {
   list-style-type: none;
   margin: 0;

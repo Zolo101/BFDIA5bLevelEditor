@@ -297,8 +297,8 @@ function makeLevel(iv,jv) {
 // }
 
 // function changeLevel() {
-// 	levelwidth = document.getElementById("levelwidth").value;
-// 	levelheight = document.getElementById("levelheight").value;
+//  	levelwidth = document.getElementById("levelwidth").value;
+//  	levelheight = document.getElementById("levelheight").value;
 // }
 
 function selectBox(numid) {
